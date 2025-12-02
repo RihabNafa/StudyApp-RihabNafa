@@ -1,38 +1,513 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
-  to {
-    transform: rotate(360deg);
+
+  /* PAGE 1 - ACCUEIL */
+  .page1-container {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #14b8a6, #0d9488);
+    position: relative;
+    overflow: hidden;
   }
+
+  .page1-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 9999px;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .header-right {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 9999px;
+    padding: 0.5rem;
+  }
+
+  .page1-decoration {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 16rem;
+    background: white;
+    border-bottom-left-radius: 100px;
+    opacity: 0.1;
+  }
+
+  .page1-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 2rem;
+    text-align: center;
+    color: white;
+  }
+
+  .page1-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .page1-subtitle {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .page1-logo {
+    width: 10rem;
+    height: 10rem;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0;
+    font-size: 4rem;
+  }
+
+  .btn-decouvrir {
+    background: #2dd4bf;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.125rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s;
+  }
+
+  .btn-decouvrir:hover {
+    background: #5eead4;
+  }
+
+  /* PAGE 2 - NIVEAU SCOLAIRE */
+  .page2-container {
+    min-height: 100vh;
+    background: #f9fafb;
+  }
+
+  .page2-header {
+    background: linear-gradient(to right, #14b8a6, #0d9488);
+    height: 8rem;
+    border-bottom-right-radius: 100px;
+    position: relative;
+    padding: 1rem;
+  }
+
+  .page2-header-icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .page2-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 4rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .page2-content {
+    padding: 2rem 1.5rem;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .carousel-container {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .carousel-image {
+    width: 100%;
+    height: 12rem;
+    background: linear-gradient(to right, #dbeafe, #bfdbfe);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #d1d5db;
+  }
+
+  .dot.active {
+    background: #14b8a6;
+  }
+
+  .years-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .year-button {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    transition: all 0.3s;
+  }
+
+  .year-button:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .year-button.year1 {
+    background: linear-gradient(to right, #fb923c, #f97316);
+  }
+
+  .year-button.year2 {
+    background: linear-gradient(to right, #f472b6, #ec4899);
+  }
+
+  .year-button.year3 {
+    background: linear-gradient(to right, #a3e635, #84cc16);
+  }
+
+  .year-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .year-icon {
+    font-size: 2.5rem;
+  }
+
+  .year-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+  }
+
+  /* PAGE 3 - COURS */
+  .page3-container {
+    min-height: 100vh;
+    background: #f9fafb;
+  }
+
+  .page3-header {
+    background: linear-gradient(to right, #14b8a6, #0d9488);
+    height: 6rem;
+    border-bottom-right-radius: 80px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .page3-content {
+    padding: 1.5rem;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+
+  .page3-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .btn-retour {
+    color: #0d9488;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 1rem;
+  }
+
+  .year-badge-pill {
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .year-badge-pill.year1 { background: #fb923c; }
+  .year-badge-pill.year2 { background: #f472b6; }
+  .year-badge-pill.year3 { background: #a3e635; }
+
+  .filiere-select {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: white;
+    border: 2px solid #fb923c;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    color: #374151;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+  }
+
+  .search-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.75rem 3rem 0.75rem 1rem;
+    background: white;
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e5e7eb;
+    outline: none;
+    font-size: 1rem;
+  }
+
+  .search-input:focus {
+    border-color: #2dd4bf;
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fb923c;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
+  }
+
+  .courses-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .course-card {
+    width: 100%;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .course-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .course-content {
+    color: white;
+    text-align: center;
+  }
+
+  .course-icon {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .course-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .btn-voir-cours {
+    background: #14b8a6;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+    transition: background 0.3s;
+  }
+
+  .btn-voir-cours:hover {
+    background: #0d9488;
+  }
+
+  /* PAGE 4 - DÉTAILS */
+  .page4-container {
+    min-height: 100vh;
+    background: #f9fafb;
+  }
+
+  .type-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: white;
+    border: 2px solid #f472b6;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    color: #374151;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    appearance: none;
+    font-size: 1rem;
+  }
+
+  .course-detail-card {
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
+
+  .course-detail-content {
+    color: white;
+    text-align: center;
+  }
+
+  .course-icon-large {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .course-icon-large-emoji {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .course-title-large {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-voir-cours-large {
+    background: #14b8a6;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  .btn-download {
+    width: 100%;
+    background: #2dd4bf;
+    color: white;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+
+  .btn-download:hover {
+    background: #14b8a6;
+  }
+
+  .content-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .content-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+  }
+
+  .content-item:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .content-item-text {
+    font-weight: 600;
+    color: #374151;
+  }
+
+  .no-results {
+    text-align: center;
+    color: #6b7280;
+    margin-top: 2rem;
+  }
+  .course-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+.course-img-large {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }

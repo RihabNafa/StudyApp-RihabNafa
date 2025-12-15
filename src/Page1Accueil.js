@@ -1,9 +1,12 @@
-import imglogo from  "./images/students-illustration.png";
+
+// Page1Accueil.js
+import React from "react";
+import imglogo from "./images/students-illustration.png";
 import "./App.css";
+
 const Page1Accueil = ({ onNavigate }) => {
   return (
     <div className="page1-container">
-      
       <div className="page1-header">
         <div className="header-left">
           <span style={{color: 'white', fontSize: '1.25rem'}}>👤</span>
@@ -23,7 +26,7 @@ const Page1Accueil = ({ onNavigate }) => {
         <h3 className="page1-subtitle">OFPPT !</h3>
 
         <div className="page1-logo">
-          <span><img src={imglogo} /></span>
+          <img src={imglogo} alt="Students" style={{width: '100%', height: '100%', objectFit: 'contain'}} />
         </div>
 
         <button onClick={() => onNavigate('page2')} className="btn-decouvrir">
@@ -34,4 +37,5 @@ const Page1Accueil = ({ onNavigate }) => {
     </div>
   );
 };
+
 export default Page1Accueil;
